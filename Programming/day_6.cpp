@@ -21,22 +21,24 @@
 #include<iostream>
 using namespace std;
 
-void removeDuplicates(vector<int> arr){
-    int count=1;
-    int size=arr.size();
-    int temp=arr[0];
-    int ptr=1;
-    while(ptr<size){
-        if(temp!=arr[ptr]){
-            count++;
+vector<int> removeDuplicates(vector<int> arr){
+    vector<int> temp;
+    int rep=arr[0];
+    temp.push_back(arr[0]);
+    for(int i=1;i<arr.size();i++){
+        if(rep!=arr[i]){
+            temp.push_back(arr[i]);
         }
-        temp=arr[ptr];
-        ptr++;
+        rep=arr[i];
     }
-    
+    return temp;
 }
 
 int main(){
-
+    vector<int> array={1, 1, 2, 2, 3, 3};
+vector<int> result=removeDuplicates(array);
+for(auto i:result){
+    cout<<i<< " ";
+}
     return 0;
 }
